@@ -1,33 +1,23 @@
-import React, { useState} from "react";
-import Layout from "./Layout";
-import { useInputContextConsumer } from "../Context/inputContext";
-import { useNavigate } from "react-router-dom";
-const Form = () =>{
-  const navigate = useNavigate();
-  const [userData, setUserData] = useState({
-    name: "",
-    age: "",
-    course: "",
-    batch: "",
-  }); 
-  const { input, setInput } = useInputContextConsumer();
-  
-  const changeHandler = (e) => {
-    setUserData({ ...userData, [e.target.name]: e.target.value });
-  };
-  const submitHandler = (e) => {
-    e.preventDefault();
-    setInput([...input, userData]);
-    setUserData({
-      name: "",
-      age: "",
-      course: "",
-      batch: "",
-    });
-    navigate(-1);
-  };
-  console.log(userData);
-
+import React, { useState } from 'react'
+import Layout from './Layout';
+import { useParams,useNavigate } from 'react-router-dom'
+import { useInputContextConsumer } from '../Context/inputContext'
+const Editform = () => {
+    const params=useParams();
+    const {id}=params;
+    const navigate=useNavigate();
+    const{input,setInput}=useInputContextConsumer();
+    const [userData, setUserData] = useState(input[id]); 
+    
+    const submitHandler=(e)=>{
+        e.preventDefault();
+        input[id]=userData;
+        setInput(input);
+        navigate(-1);
+    }
+    const changeHandler=(e)=>{
+        setUserData({...userData,[e.target.name]:e.target.value})
+    }
   return (
     <Layout>
       <div className="form__container">
@@ -72,7 +62,7 @@ const Form = () =>{
         </form>
       </div>
     </Layout>
-  );
-};
+  )
+}
 
-export default Form;
+export default Editform

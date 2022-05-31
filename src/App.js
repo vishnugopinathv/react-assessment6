@@ -4,6 +4,7 @@ import Students from './pages/Students';
 import Contact from './pages/Contact';
 import {BrowserRouter,Routes,Route} from "react-router-dom";
 import Form from './pages/Form';
+import Editform from './pages/Editform';
 import { InputContextProvider } from './Context/inputContext';
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/students' element={<Students />}/>
              <Route path='/form' element={<Form/>}/>
+             <Route path='/edit/:id' element={<Editform/>}/>
           <Route path='/contact' element={<Contact />}/>
         </Routes>
         </BrowserRouter>

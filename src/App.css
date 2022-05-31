@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Ubuntu:wght@500&display=swap');
 *{
   margin: 0;
   padding: 0;
@@ -57,9 +58,12 @@ table{
 td{
   border-bottom: 1px solid;
   padding: 1rem;
+  font-family: 'Montserrat',sans-serif;
 }
 th{
   border-bottom:1px solid black;
+  font-family: 'Ubuntu',sans-serif;
+  padding: 1rem;
 }
 .form__container{
   display: flex;
@@ -85,5 +89,9 @@ input[type="submit"], [type="text"]{
   padding: 0.5rem 1rem ;
   border-radius: 10px;
   border: 1px solid black;
-
+  font-family: 'Montserrat',sans-serif;
+  cursor: pointer;
+}
+.input__item label{
+  font-family: 'Ubuntu',sans-serif;
 }

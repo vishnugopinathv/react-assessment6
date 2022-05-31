@@ -38,7 +38,7 @@ function Students() {
                           course: v.course,
                           batch: v.batch,
                         }}
-                        to="/form"
+                        to={`/edit/${index}`}
                       >
                         Edit
                       </Link>
